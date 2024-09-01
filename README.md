@@ -114,70 +114,106 @@ cat tests/rsa-1
 
 ## Tasks
 
-### Task 0: General Factorization
+## Task 0: General Factorization
 
-**Objective**: Factorize all the numbers in a file into a product of two smaller numbers.
+### Objective
+Factorize each number in a file into a product of two smaller numbers.
 
-**Usage**:
-```
+### Usage
+```bash
 ./factors <file>
 ```
+
 - `<file>`: A file containing natural numbers, one per line. Each line contains a valid natural number greater than 1, and the file ends with a newline character.
 
-**Output Format**:
+### Output Format
 ```
 n=p*q
 ```
+Where:
 - `n` is the number from the input file.
-- `p` and `q` are the factors of `n`.
+- `p` and `q` are factors of `n`.
 
-**Example**:
+### Example
+
+**Input File (test00):**
 ```
-Input: 4
-Output: 4=2*2
+4
+12
+34
+128
 ```
 
-**Instructions**:
-1. Implement a script to read the file and factorize each number.
-2. Print the results in the specified format.
-3. Ensure the script runs within a 5-second time limit for each number.
-
-
-### Task 1: RSA Factoring
-
-**Objective**: Factorize RSA numbers into their prime components.
-
-**Usage**:
+**Command:**
+```bash
+./factors test00
 ```
+
+**Output:**
+```
+4=2*2
+12=6*2
+34=17*2
+128=64*2
+```
+
+### Instructions
+1. Implement a script that reads the file and factorizes each number.
+2. Output the results in the format `n=p*q` where `p` and `q` are factors of `n`.
+3. Make sure the script executes in 5 seconds for each number.
+4. No external dependencies are required; the script should run as a standalone executable.
+
+## Task 1: RSA Factoring
+
+### Objective
+Factorize RSA numbers into their prime components.
+
+### Usage
+```bash
 ./rsa <file>
 ```
-- `<file>`: A file containing a single RSA number. Each file contains exactly one RSA number.
 
-**Output Format**:
+- `<file>`: A file containing a single RSA number. The file should contain exactly one RSA number greater than 1.
+
+### Output Format
 ```
 n=p*q
 ```
+Where:
 - `n` is the RSA number.
 - `p` and `q` are the prime factors of `n`.
 
-**Example**:
+### Example
+
+**Input File (rsa-2):**
 ```
-Input: 77
-Output: 77=11*7
+77
 ```
 
-**Instructions**:
+**Command:**
+```bash
+./rsa rsa-2
+```
+
+**Output:**
+```
+77=11*7
+```
+
+### Instructions
 1. Implement a script to read the RSA number from the file and factorize it into two prime numbers.
-2. Print the results in the specified format.
-3. Ensure the script runs within a 5-second time limit for each RSA number.
+2. Output the results in the format `n=p*q` where `p` and `q` are prime factors.
+3. Ensure the script executes within a 5-second time limit.
+4. No external dependencies are required; the script should run as a standalone executable.
+5. RSA numbers are guaranteed to be the product of exactly two prime numbers. Use efficient algorithms suited for factorizing large numbers.
 
-- Files: `factors`, `rsa`
 
 ## Additional Notes
 
-- Make sure your executable is optimised for speed.
-- Check that your code handles large numbers effectively.
+- Make sure your executable is optimized for speed.
 - Avoid using external libraries or dependencies.
+- If you need to factor large RSA numbers, use Pollard's rho algorithm or elliptic curve factorization. 
+- Ensure proper handling of large numbers and edge cases, including very large primes or near-primes.
 
 
 ## Background Context
